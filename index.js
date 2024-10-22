@@ -15,7 +15,7 @@ app.use(cors({
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "https://video-calling-xpp.vercel.app", // Allow all origins (for testing)
+    origin: "*", // Allow all origins (for testing)
     methods: ["GET", "POST"]
   }
 });

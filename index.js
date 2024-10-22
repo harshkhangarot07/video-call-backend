@@ -4,12 +4,18 @@ const { Server } = require('socket.io');
 const cors = require('cors');
 
 const app = express();
-app.use(cors());
+
+app.use(cors({
+  origin: "https://video-calling-xpp.vercel.app", // Replace with your Vercel frontend URL
+  methods: ["GET", "POST"],
+  credentials: true
+}));
+
 
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "*", // Allow all origins (for testing)
+    origin: "https://video-calling-xpp.vercel.app", // Allow all origins (for testing)
     methods: ["GET", "POST"]
   }
 });
